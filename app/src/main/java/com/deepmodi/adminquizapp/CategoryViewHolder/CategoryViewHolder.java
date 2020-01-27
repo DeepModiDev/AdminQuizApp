@@ -11,12 +11,15 @@ public class CategoryViewHolder extends RecyclerView.ViewHolder {
 
     public TextView categoryName;
     public TextView categoryDesc;
+    public TextView categoryId;
+
 
     public CategoryViewHolder(@NonNull View itemView) {
         super(itemView);
 
         categoryName = itemView.findViewById(R.id.container_category_name);
         categoryDesc = itemView.findViewById(R.id.container_category_desc);
+        categoryId = itemView.findViewById(R.id.container_category_id);
 
     }
 }

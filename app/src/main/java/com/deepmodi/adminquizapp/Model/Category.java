@@ -5,17 +5,27 @@ public class Category {
     private String itemName;
     private String itemdesc;
     private String itemImage;
+    private String itemId;
 
     public Category() {
     }
 
-    public Category(String itemName, String itemdesc) {
+    public Category( String itemId,String itemName, String itemdesc) {
+        this.itemId = itemId;
         this.itemName = itemName;
         this.itemdesc = itemdesc;
     }
 
     public String getItemName() {
         return itemName;
+    }
+
+    public String getItemId() {
+        return itemId;
+    }
+
+    public void setItemId(String itemId) {
+        this.itemId = itemId;
     }
 
     public void setItemName(String itemName) {

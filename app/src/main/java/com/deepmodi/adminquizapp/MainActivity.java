@@ -2,7 +2,6 @@ package com.deepmodi.adminquizapp;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.cardview.widget.CardView;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -66,6 +65,7 @@ public class MainActivity extends AppCompatActivity {
             protected void onBindViewHolder(@NonNull CategoryViewHolder holder, int position, @NonNull Category model) {
                 holder.categoryName.setText(model.getItemName());
                 holder.categoryDesc.setText(model.getItemdesc());
+                holder.categoryId.setText(model.getItemId());
             }
 
             @NonNull

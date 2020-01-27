@@ -19,7 +19,7 @@ import com.google.firebase.database.ValueEventListener;
 public class AddItemActivity extends AppCompatActivity {
 
     Button btn_add_category;
-    EditText editText_category_name,editText_category_desc;
+    EditText edit_category_id,editText_category_name,editText_category_desc;
     FirebaseDatabase database;
     DatabaseReference reference;
 
@@ -33,21 +33,22 @@ public class AddItemActivity extends AppCompatActivity {
         reference = database.getReference("Category");
 
         btn_add_category = findViewById(R.id.btn_upload);
+        edit_category_id = findViewById(R.id.edit_category_id);
         editText_category_desc = findViewById(R.id.edit_category_desc);
         editText_category_name = findViewById(R.id.edit_category_name);
 
         btn_add_category.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                    uploadData(editText_category_name.getText().toString(),editText_category_desc.getText().toString());
+                    uploadData(edit_category_id.getText().toString(),editText_category_name.getText().toString(),editText_category_desc.getText().toString());
             }
         });
     }
 
-    private void uploadData(String CategoryName,String CategoryDesc)
+    private void uploadData(String CategoryId,String CategoryName,String CategoryDesc)
     {
-        Category category = new Category(CategoryName,CategoryDesc);
-        reference.child(String.valueOf(System.currentTimeMillis())).setValue(category);
+        Category category = new Category(CategoryId,CategoryName,CategoryDesc);
+        reference.child(CategoryId).setValue(category);
         Toast.makeText(this, "Item added.", Toast.LENGTH_SHORT).show();
     }
 }
