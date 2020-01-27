@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.deepmodi.adminquizapp.CategoryViewHolder.CategoryViewHolder;
 import com.deepmodi.adminquizapp.Model.Category;
@@ -27,11 +28,14 @@ public class MainActivity extends AppCompatActivity {
     FirebaseRecyclerAdapter<Category, CategoryViewHolder> adapter;
     FirebaseDatabase database;
     DatabaseReference reference;
+    ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        progressBar = findViewById(R.id.progressBar);
 
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("Category");
@@ -66,6 +70,7 @@ public class MainActivity extends AppCompatActivity {
                 holder.categoryName.setText(model.getItemName());
                 holder.categoryDesc.setText(model.getItemdesc());
                 holder.categoryId.setText(model.getItemId());
+                progressBar.setVisibility(View.GONE);
             }
 
             @NonNull
