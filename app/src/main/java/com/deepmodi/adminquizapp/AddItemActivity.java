@@ -117,6 +117,8 @@ public class AddItemActivity extends AppCompatActivity {
                 .check();
     }
 
+
+    
     private void showSettingDialog()
     {
         AlertDialog.Builder builder = new AlertDialog.Builder(AddItemActivity.this);
